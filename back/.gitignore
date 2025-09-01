@@ -1,0 +1,48 @@
+#dependencias
+node_modules/
+package-lock.json
+
+# archivos de netorno
+.env.local
+.env.*.local
+
+#logs
+logs
+*.log
+npm-debug-.log*
+yarn-debud-log*
+yarn-error.log*
+
+#directorios de runtiime
+dist/
+build/
+tmp/
+temp/
+
+# archivos de sistema
+.DS_Store
+Thumbs.db 
+
+# directorios y archivos de IDE/editores
+.idea/
+.vscode/
+*.swap
+*.swo
+*.swn
+*.bak
+
+#archivos  debug
+.debug
+debug.log
+
+#archivos  de cobertura
+coverage/
+
+# archivos de uploads (excepto el directorio vacio)
+uploads/*
+!uploads/.gitkeep
+
+#otros
+*.pid
+*.seed
+*.pid.lock
