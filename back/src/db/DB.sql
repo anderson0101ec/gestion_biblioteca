@@ -1,5 +1,4 @@
 CREATE DATABASE gestion_biblioteca;
-USE DATABASE gestion_biblioteca;
 
 CREATE TABLE Usuario (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,

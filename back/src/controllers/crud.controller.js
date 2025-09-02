@@ -3,12 +3,52 @@ const db = require ('../config/conexion_DB');
 
 class crudController {
 
+    // put eliminar datos de la base de datos
+    async actualizar(tabla, idCampo, id, data){
+    try {
+        const [resultado] = await db.query(
+            `UPDATE ?? SET ? WHERE ?? = ?`,
+            [tabla, data, idCampo, id]
+        );
+
+        if (resultado.affectedRows === 0) {
+            throw new Error('Registro no encontrado');
+        }
+
+        return await this.obtenerUno(tabla, idCampo, id);
+
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+
+
+
+
     //obtener los registros de una tabla
     async obtenerTodos(tabla){
         const [resultados] = await db.query(`SELECT * FROM ${tabla}`);
         return resultados;      
     }
 //obtener un registro po ID
+
+async obtenerUsuarios() {
+        try {
+            const [rows] = await db.query('SELECT * FROM Usuario');
+            return rows;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    // resto de métodos igual, usando db.query()
+
+
+
+    // ... otros métodos existentes
+
 async obtenerUno(tabla, idCampo, id){
     try {
         const [resultado] = await db.query(`SELECT * FROM ?? WHERE ?? = ?`,[tabla, idCampo, id]);
